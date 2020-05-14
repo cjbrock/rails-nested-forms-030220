@@ -9,5 +9,11 @@
 </div>
 
 <h4 class="red-text"> Name: <%= @sushi.name %>  </h4>
+<ul>
+  <% @sushi.ingredients.each do |ing| %>
+    <li><%=ing.name %> | calories: <%= ing.calories %> | serving size: <%= ing.serving_size_grams %></li>
+  <% end %>
+</ul>
+
 <h6><%= link_to("Edit Sushi", edit_sushi_path(@sushi)) %></h6>
 <h6><%= link_to("Delete", @sushi, method: :delete, data:{confirm: "Do you really want to delete me?"}) %></h6>

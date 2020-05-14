@@ -7,31 +7,26 @@
             <br/>
 
             <% if @sushi.errors.any? %>
-                <% @sushi.errors.full_messages.each do | error | %>
-                    <h5 class="error"><%= error %></h5>
-                <% end %>
-            <% end %>
-
-            <% if @sushi.errors.any? %>
                 <h5 class="error"><%= @sushi.errors.full_messages.to_sentence %></h5>
             <% end %>
 
-
-
            <%= form_with model: @sushi, local: true do |f| %>
+            <%= f.label :name %>
             <%= f.text_field :name, class: @sushi.errors.any? ? "error-field" : nil %>
+            <h4>Ingredients:</h4>
+            <%= f.fields_for :ingredients do |i| %>
+                <%= i.label :name %>
+                <%= i.text_field :name %><br />
+
+                <%= i.label :calories %>
+                <%= i.number_field :calories %><br />
+
+                <%= i.label :serving_size_grams %>
+                <%= i.number_field :serving_size_grams %><br />
+            <% end%>
             <%= f.submit %>
            <% end %>
 
-           <%#= form_with model: @sushi do |f| %>
-            <%#= f.text_field :name %>
-            <%#= f.submit %>
-           <%# end %>
-
-           <%#= form_for @sushi do |f| %>
-            <%#= f.text_field :name %>
-            <%#= f.submit %>
-           <%# end %>
 
         </div>
         <div class="col-xs-4">

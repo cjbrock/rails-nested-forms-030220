@@ -4,8 +4,8 @@
         <div class="col-xs-6">
             <ul>
                 <% @sushis.each do |sushi| %>
-                    <li><%= link_to(sushi.name, "/sushis/#{sushi.id}") %></li>
-                    <li><%= link_to(sushi.name, sushi_path(sushi)) %></li>
+                    <!--<li><%#= link_to(sushi.name, "/sushis/#{sushi.id}") %></li>-->
+                    <!--<li><%#= link_to(sushi.name, sushi_path(sushi)) %></li>-->
                     <li><%= link_to(sushi.name, sushi) %></li>
                 <% end %>
             </ul>

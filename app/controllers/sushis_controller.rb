@@ -13,6 +13,7 @@ class SushisController < ApplicationController
 
   def new
     @sushi = Sushi.new
+    5.times { @sushi.ingredients.build}
   end
 
   def create
@@ -55,7 +56,7 @@ class SushisController < ApplicationController
   end
 
   def sushi_params
-    params.require(:sushi).permit(:name)
+    params.require(:sushi).permit(:name, ingredients_attributes:[:name, :calories, :serving_size_grams])
   end
 
 
